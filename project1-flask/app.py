@@ -54,6 +54,13 @@ def update():
         return redirect(url_for('Index'))
     
 @app.route('/delete/<id>',methods=['GET','POST'])
+def delete(id):
+    my_data=Data.query.get(my_data)
+    db.session.delete(my_data)
+    db.session.commit()
+    flash("Employee deleted successfully")
+
+    return redirect(url_for('Index'))
 
 
 
